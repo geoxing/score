@@ -4,3 +4,4 @@ selenium==4.27.1
 snapshot-selenium==0.0.2
 secure-smtplib==0.1.1
 python-dateutil==2.9.0
+requests==2.32.2
