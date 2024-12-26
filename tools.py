@@ -1,5 +1,4 @@
 import smtplib
-import lixinger_openapi as lo
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
@@ -12,7 +11,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from pyecharts.globals import ThemeType
 
-lo.set_token("5356e78a-97e9-4dd8-9659-7b9550e31fa5", write_token=True)
+set_token("5356e78a-97e9-4dd8-9659-7b9550e31fa5", write_token=True)
 
 def getClosePoint(stockCode="000001"):
     # 获取当前日期
@@ -28,7 +27,7 @@ def getClosePoint(stockCode="000001"):
     # print("十年前的日期（简单计算）:", ten_years_ago_simple.strftime("%Y-%m-%d"))
     # print("十年前的日期（精确计算）:", ten_years_ago_accurate.strftime("%Y-%m-%d"))
     #k线信息
-    return lo.query_json('cn/index/candlestick', {
+    return query_json('cn/index/candlestick', {
         "type": "normal",
         "startDate": one_years_ago_accurate.strftime("%Y-%m-%d"),
         "endDate": today.strftime("%Y-%m-%d"),
