@@ -6,11 +6,12 @@ from pyecharts.commons.utils import JsCode
 from datetime import datetime, timedelta
 import lixinger_openapi as lo
 from pyecharts.globals import ThemeType
-
+from token import set_token
+from query import query_json
 from tools import send_email_with_image, output_image
 
 def getCloseValues(curDate="2024-12-05",stockCode="000001"):
-    json_rltk = lo.query_json('cn/index/candlestick', {
+    json_rltk = query_json('cn/index/candlestick', {
         "type": "normal",
         "startDate": curDate,
         "endDate": curDate,
@@ -66,7 +67,7 @@ def get_etf_keypoint():
         # "JPYCNY": {"name":"日元人民币","major_support":4.45,"minor_support":4.6,"minor_pressure":6,"major_pressure":6.7}
     }
 
-    lo.set_token("5356e78a-97e9-4dd8-9659-7b9550e31fa5", write_token=True)
+    set_token("5356e78a-97e9-4dd8-9659-7b9550e31fa5", write_token=True)
 
     close_point_values={}
 
