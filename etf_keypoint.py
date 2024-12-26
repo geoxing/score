@@ -1,10 +1,8 @@
-
 from pyecharts import options as opts
 from pyecharts.charts import Bar
 from pyecharts.faker import Faker
 from pyecharts.commons.utils import JsCode
 from datetime import datetime, timedelta
-import lixinger_openapi as lo
 from pyecharts.globals import ThemeType
 from lixinger_token import set_token
 from lixinger_query import query_json
