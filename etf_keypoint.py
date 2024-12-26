@@ -6,8 +6,8 @@ from pyecharts.commons.utils import JsCode
 from datetime import datetime, timedelta
 import lixinger_openapi as lo
 from pyecharts.globals import ThemeType
-from token import set_token
-from query import query_json
+from lixinger_token import set_token
+from lixinger_query import query_json
 from tools import send_email_with_image, output_image
 
 def getCloseValues(curDate="2024-12-05",stockCode="000001"):
