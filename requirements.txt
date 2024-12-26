@@ -3,3 +3,4 @@ pyecharts-snapshot==0.2.0
 selenium==4.27.1
 snapshot-selenium==0.0.2
 secure-smtplib==0.1.1
+lixinger-openapi==1.0.2
