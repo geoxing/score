@@ -52,7 +52,9 @@ def get_all_etf_index():
 
 # 检查当前模块是否是主程序
 if __name__ == "__main__":
+    print("get_all_etf_index start",flush=True)
     get_all_etf_index
+    print("get_all_etf_index over",flush=True)
     # print("每天下午五点执行 job",flush=True)
     # # 每天下午五点执行 job 函数
     # schedule.every().day.at("17:00").do(get_all_etf_index)
