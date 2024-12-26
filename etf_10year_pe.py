@@ -1,5 +1,4 @@
 import json
-import lixinger_openapi as lo
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from pyecharts import options as opts
