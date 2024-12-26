@@ -1,4 +1,4 @@
-import schedule
+#import schedule
 import time
 from etf_000001_year_close import get_etf_000001_year_close
 from etf_000016_year_close import get_etf_000016_year_close
@@ -52,14 +52,15 @@ def get_all_etf_index():
 
 # 检查当前模块是否是主程序
 if __name__ == "__main__":
-    print("每天下午五点执行 job",flush=True)
-    # 每天下午五点执行 job 函数
-    schedule.every().day.at("17:00").do(get_all_etf_index)
-    print("定时任务已启动，等待每天下午五点执行...",flush=True)
-    while True:
-        # print("正在运行...", flush=True)  # 添加 flush=True
-        schedule.run_pending()
-        time.sleep(60)  # 每分钟检查一次是否有任务需要执行
+    get_all_etf_index（）
+    # print("每天下午五点执行 job",flush=True)
+    # # 每天下午五点执行 job 函数
+    # schedule.every().day.at("17:00").do(get_all_etf_index)
+    # print("定时任务已启动，等待每天下午五点执行...",flush=True)
+    # while True:
+    #     # print("正在运行...", flush=True)  # 添加 flush=True
+    #     schedule.run_pending()
+    #     time.sleep(60)  # 每分钟检查一次是否有任务需要执行
 
 
 # lo.set_token("5356e78a-97e9-4dd8-9659-7b9550e31fa5", write_token=True)
