@@ -1,0 +1,36 @@
+# This workflow will upload a Python Package to PyPI when a release is created
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: etf-publish
+
+# 触发条件：每天下午5点（17:00 UTC）
+on:
+  schedule:
+    - cron: '0 17 * * *'
+
+jobs:
+  release-build:
+    runs-on: ubuntu-latest # 选择运行器类型
+    # 检出代码库
+    steps:
+      - uses: actions/checkout@v4
+      
+    # 设置 Python 环境
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+    # 安装依赖项
+      - name: Install dependencies
+        run: |
+         python -m pip install --upgrade pip
+         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi  # 只有当 requirements.txt 存在时才安装依赖
+
+    # 执行 Python 脚本
+      - name: Run Python script
+        run: python helloworld.py
