@@ -10,6 +10,7 @@ name: etf-publish
 
 # 触发条件：每天下午5点（17:00 UTC）
 on:
+  workflow_dispatch:  # 允许通过 GitHub UI 手动触发
   schedule:
     - cron: '0 17 * * *'
 
