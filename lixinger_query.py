@@ -5,7 +5,7 @@
 import json
 import requests
 from pandas import json_normalize
-from token import get_token
+from lixinger_token import get_token
 
 BASEURL = "https://open.lixinger.com/api/"
 
