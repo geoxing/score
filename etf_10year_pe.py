@@ -5,7 +5,8 @@ from dateutil.relativedelta import relativedelta
 from pyecharts import options as opts
 from pyecharts.charts import Line
 from pyecharts.globals import ThemeType
-
+from token import set_token
+from query import query_json
 from tools import output_image, send_email_with_image
 
 
@@ -35,7 +36,7 @@ def getPEValues(stockCode="000001"):
     # print("十年前的日期（简单计算）:", ten_years_ago_simple.strftime("%Y-%m-%d"))
     # print("十年前的日期（精确计算）:", ten_years_ago_accurate.strftime("%Y-%m-%d"))
 
-    return lo.query_json('cn/index/fundamental', {
+    return query_json('cn/index/fundamental', {
         "startDate": ten_years_ago_accurate.strftime("%Y-%m-%d"),
         "endDate": today.strftime("%Y-%m-%d"),
         "stockCodes": [
@@ -48,7 +49,7 @@ def getPEValues(stockCode="000001"):
 
 
 def get_etf_10year_pe():
-    lo.set_token("5356e78a-97e9-4dd8-9659-7b9550e31fa5", write_token=True)
+    set_token("5356e78a-97e9-4dd8-9659-7b9550e31fa5", write_token=True)
     # 存储所有数据的字典
     all_data = {}
 
