@@ -76,7 +76,7 @@ def get_etf_year_close_line(etf_info_map):
 
     # 创建 Line 图表实例
     line = (
-        Line(init_opts=opts.InitOpts(width="2400px", height="1200px"))
+        Line(init_opts=opts.InitOpts(width="2400px", height="1200px", bg_color="white"))
         .add_xaxis(dates)
         .set_series_opts(label_opts=opts.LabelOpts(is_show=False))  # 隐藏数据标签
     )

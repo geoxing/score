@@ -118,7 +118,7 @@ def get_etf_keypoint():
 
     # 创建Bar对象
     bar = (
-        Bar(init_opts=opts.InitOpts(width="2400px", height="1600px"))
+        Bar(init_opts=opts.InitOpts(width="2400px", height="1600px", bg_color="white"))
         .add_xaxis(etf_names)
         .add_yaxis("major_support", major_supports, stack="stack1",bar_width="50%",gap="0%",itemstyle_opts=opts.ItemStyleOpts(color="#00da3c"))
         .add_yaxis("minor_support", minor_supports, stack="stack1",gap="0%",itemstyle_opts=opts.ItemStyleOpts(color="lightgreen"))
@@ -137,7 +137,7 @@ def get_etf_keypoint():
         .set_global_opts(
             title_opts=opts.TitleOpts(is_show=False),
             legend_opts=opts.LegendOpts(is_show=False),
-            tooltip_opts=opts.TooltipOpts(is_show=False)  # 隐藏 tooltip
+            tooltip_opts=opts.TooltipOpts(is_show=False)
         )
         .reversal_axis()
     )

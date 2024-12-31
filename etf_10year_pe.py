@@ -118,7 +118,7 @@ def get_etf_10year_pe():
 
     # 创建 Line 图表实例
     line = (
-        Line(init_opts=opts.InitOpts(width="3000px", height="1200px"))
+        Line(init_opts=opts.InitOpts(width="3000px", height="1200px", bg_color="white"))
         .add_xaxis(dates)
         .set_global_opts(
             title_opts=opts.TitleOpts(is_show=False),
