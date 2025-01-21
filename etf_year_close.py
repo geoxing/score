@@ -1,4 +1,4 @@
-from tools import output_image, send_email_with_image, get_etf_year_close_line
+from tools import output_image, send_email_with_image, get_etf_year_close_line_all
 
 def get_etf_year_close():
     etf_info_map = {
@@ -36,7 +36,7 @@ def get_etf_year_close():
         # "USDCNH": {"name":"USD","major_support":6.8,"minor_support":7.08,"minor_pressure":7.25,"major_pressure":7.37},
         # "JPYCNY": {"name":"JPY","major_support":4.45,"minor_support":4.6,"minor_pressure":6,"major_pressure":6.7}
     }
-    line= get_etf_year_close_line(etf_info_map)
+    line= get_etf_year_close_line_all(etf_info_map)
     # 渲染图表到 HTML 文件
     output_html_file="etf_year_close.html"
     line.render(output_html_file)
