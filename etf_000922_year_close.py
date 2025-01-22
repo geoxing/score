@@ -10,7 +10,7 @@ def get_etf_000922_year_close():
         # "932000": {"name":"ZZ2000","major_support":1700,"minor_support":2070,"minor_pressure":2142,"major_pressure":2635},
         # "399006": {"name":"ChuangYe","major_support":1250,"minor_support":1750,"minor_pressure":2422,"major_pressure":3400},
         # "000688": {"name":"KeChuang50","major_support":345,"minor_support":518,"minor_pressure":1300,"major_pressure":1726},
-        "000922": {"name":"zzHongLi","major_support":3476,"minor_support":3600,"minor_pressure":4890,"major_pressure":6200},
+        "000922": {"name":"zzHongLi","major_support":3476,"minor_support":4650,"minor_pressure":4890,"major_pressure":6200},
         # "000991": {"name":"qzYiYao","major_support":7200,"minor_support":9400,"minor_pressure":13000,"major_pressure":17300},
         # "399989": {"name":"zzYiLiao","major_support":5630,"minor_support":8570,"minor_pressure":13000,"major_pressure":18000},
         # "399812": {"name":"YangLao","major_support":4800,"minor_support":7100,"minor_pressure":10000,"major_pressure":13000},
