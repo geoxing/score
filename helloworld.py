@@ -21,8 +21,16 @@ from etf_399971_year_close import get_etf_399971_year_close
 from etf_399975_year_close import get_etf_399975_year_close
 from etf_399989_year_close import get_etf_399989_year_close
 from etf_932000_year_close import get_etf_932000_year_close
+from etf_DAX_year_close import get_etf_DAX_year_close
+from etf_HSI_year_close import get_etf_HSI_year_close
+from etf_NSDX100_year_close import get_etf_NSDX100_year_close
+from etf_NSDX_year_close import get_etf_NSDX_year_close
+from etf_SPX_year_close import get_etf_SPX_year_close
 from etf_keypoint import get_etf_keypoint
+from etf_keypoint_overseas import get_etf_keypoint_overseas
 from etf_year_close import get_etf_year_close
+from etf_year_close_overseas import get_etf_year_close_overseas
+
 
 def get_all_etf_index():
     get_etf_year_close() #etf指数一年收盘价
@@ -48,6 +56,13 @@ def get_all_etf_index():
     get_etf_399975_year_close()
     get_etf_399989_year_close()
     get_etf_932000_year_close()
+    get_etf_year_close_overseas()
+    get_etf_keypoint_overseas()
+    get_etf_HSI_year_close()
+    get_etf_DAX_year_close()
+    get_etf_SPX_year_close()
+    get_etf_NSDX_year_close()
+    get_etf_NSDX100_year_close()
     print("get_all_etf_index done...")
 
 # 检查当前模块是否是主程序
