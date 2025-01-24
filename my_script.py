@@ -15,7 +15,7 @@ etfs = {
 
 def get_daily_close(etf_code):
     etf = yf.Ticker(etf_code)
-    data = etf.history(period="1d")  # 获取最近1天数据
+    data = etf.history(period="1d")  # 获取当日分钟/小时数据
     return data["Close"].values[0] if not data.empty else None
 
 def get_1year_history(etf_code):
@@ -32,16 +32,16 @@ def get_10year_history(etf_code):
 
 def main():
     # 示例：查询恒生ETF当日收盘价
-    # hk_close_price = round(get_daily_close("^HSI"), 2)
-    # print(f"恒生ETF当日收盘价: {hk_close_price}")
+    hk_close_price = round(get_daily_close("^HSI"), 2)
+    print(f"恒生ETF当日收盘价: {hk_close_price}")
 
     # 示例：获取标普500 ETF过去一年收盘价
-    hk_1y_close_price = get_1year_history("H30533.SS")
-    for date, price in hk_1y_close_price.items():
-        # date_obj = datetime.fromisoformat(date.date())
-        formatted_date = date.date().strftime('%Y-%m-%d')  # 格式化日期为 YYYY-MM-DD
-        close_point=round(price)  # 保留两位小数
-        print(f"日期: {formatted_date}, 收盘价: {close_point}")
+    # hk_1y_close_price = get_1year_history("H30533.SS")
+    # for date, price in hk_1y_close_price.items():
+    #     # date_obj = datetime.fromisoformat(date.date())
+    #     formatted_date = date.date().strftime('%Y-%m-%d')  # 格式化日期为 YYYY-MM-DD
+    #     close_point=round(price)  # 保留两位小数
+    #     print(f"日期: {formatted_date}, 收盘价: {close_point}")
 
     # # 示例：获取纳斯达克ETF过去十年收盘价
     # qqq_10y = get_10year_history("QQQ")
