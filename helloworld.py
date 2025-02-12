@@ -22,10 +22,13 @@ from etf_399975_year_close import get_etf_399975_year_close
 from etf_399989_year_close import get_etf_399989_year_close
 from etf_932000_year_close import get_etf_932000_year_close
 from etf_DAX_year_close import get_etf_DAX_year_close
+from etf_GOLD_year_close import get_etf_GOLD_year_close
 from etf_HSI_year_close import get_etf_HSI_year_close
+from etf_JPYCNY_year_close import get_etf_JPYCNY_year_close
 from etf_NSDX100_year_close import get_etf_NSDX100_year_close
 from etf_NSDX_year_close import get_etf_NSDX_year_close
 from etf_SPX_year_close import get_etf_SPX_year_close
+from etf_USDCNY_year_close import get_etf_USDCNY_year_close
 from etf_keypoint import get_etf_keypoint
 from etf_keypoint_money import get_etf_keypoint_money
 from etf_keypoint_overseas import get_etf_keypoint_overseas
@@ -67,6 +70,9 @@ def get_all_etf_index():
     get_etf_NSDX100_year_close()
     get_etf_year_close_money()
     get_etf_keypoint_money()
+    get_etf_GOLD_year_close()
+    get_etf_JPYCNY_year_close()
+    get_etf_USDCNY_year_close()
     print("get_all_etf_index done...")
 
 # 检查当前模块是否是主程序

@@ -475,6 +475,111 @@ def get_etf_year_close_line_all_overseas(etf_info_map):
         legend_opts=opts.LegendOpts(is_show=True)  # 隐藏图例
     )
     return line
+def get_etf_year_close_line_money(etf_info_map):
+    all_data = {}
+    for item in etf_info_map.keys():
+        print(item)
+        result_close_points= getClosePoint_overseas(item)
+        for date, price in result_close_points.items():
+            # 去掉时区信息，假设所有时间为本地时间
+            formatted_date = date.date().strftime('%Y-%m-%d')  # 格式化日期为 YYYY-MM-DD
+
+            stock_code = item
+            if stock_code == "JPYCNY=X":
+                close_point = round(price*100, 2)  # 保留两位小数
+            else:
+                close_point = round(price,2)  # 保留两位小数
+
+            if stock_code not in all_data:
+                all_data[stock_code] = []
+
+            all_data[stock_code].append((formatted_date, close_point))
+
+
+    # 按日期排序每个 stockCode 的数据
+    sorted_all_data = {}
+    for stock_code, data_list in all_data.items():
+        sorted_all_data[stock_code] = sorted(data_list, key=lambda x: x[0])
+
+    # 分离日期和 pe_ttm.mcw
+    dates_set = set()
+    all_close_points = {stock_code: [] for stock_code in sorted_all_data}
+
+    for stock_code, data_list in sorted_all_data.items():
+        for formatted_date, close_point in data_list:
+            dates_set.add(formatted_date)
+            all_close_points[stock_code].append(close_point)
+
+
+    # 将日期集合转换为有序列表
+    dates = sorted(dates_set)
+
+    # 创建 Line 图表实例
+    line = (
+        Line(init_opts=opts.InitOpts(width="2400px", height="1200px", bg_color="white"))
+        .add_xaxis(dates)
+        .set_series_opts(label_opts=opts.LabelOpts(is_show=False))  # 隐藏数据标签
+    )
+    # 为每个 stockCode 添加一条折线
+    for stock_code, close_point in all_close_points.items():
+        etf_info=etf_info_map.get(stock_code, stock_code)
+        etf_name = etf_info.get("name")  # 获取自定义名称或默认名称
+        # 打印数据范围
+        min_value = min(close_point)
+        max_value = max(close_point)
+        line.add_yaxis(etf_name,
+                       close_point,
+                       symbol_size=0,  # 设置数据点大小为0
+                       markline_opts=opts.MarkLineOpts(
+                           data=[
+                               opts.MarkLineItem(
+                                   y=etf_info.get("major_support"),
+                                   name="major_support",
+                                   linestyle_opts=opts.ItemStyleOpts(
+                                       color="#00da3c",  # 红色
+                                       border_width=2   # 宽度为2像素
+                                   )
+                               ),
+                               opts.MarkLineItem(
+                                   y=etf_info.get("minor_support"),
+                                   name="minor_support",
+                                   linestyle_opts=opts.ItemStyleOpts(
+                                       color="lightgreen",  # 红色
+                                       border_width=2   # 宽度为2像素
+                                   )
+                               ),
+                               opts.MarkLineItem(
+                                   y=etf_info.get("minor_pressure"),
+                                   name="minor_pressure",
+                                   linestyle_opts=opts.ItemStyleOpts(
+                                       color="lightpink",  # 红色
+                                       border_width=2   # 宽度为2像素
+                                   )
+                               ),
+                               opts.MarkLineItem(
+                                   y=etf_info.get("major_pressure"),
+                                   name="major_pressure",
+                                   linestyle_opts=opts.ItemStyleOpts(
+                                       color="ec0000",  # 红色
+                                       border_width=2   # 宽度为2像素
+                                   )
+                               ),
+                           ],
+                       ),
+                       label_opts=opts.LabelOpts(is_show=True)
+                       )
+    # 设置全局选项
+    line.set_global_opts(
+        title_opts=opts.TitleOpts(is_show=True),
+        tooltip_opts=opts.TooltipOpts(trigger="axis"),  # 显示坐标轴触发提示框
+        yaxis_opts=opts.AxisOpts(
+            type_="value",
+            min_=min_value,  # 明确设置最小值
+            max_=max_value ,  # 明确设置最大值
+        ),
+        legend_opts=opts.LegendOpts(is_show=True)  # 隐藏图例
+    )
+    return line
 def get_etf_year_close_line_all_money(etf_info_map):
     all_data = {}
     for item in etf_info_map.keys():
