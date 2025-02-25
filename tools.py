@@ -1,4 +1,5 @@
 import smtplib
+import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
@@ -39,7 +40,10 @@ def getClosePoint(stockCode="000001"):
 
 def getClosePoint_overseas(etf_code):
     etf = yf.Ticker(etf_code)
+    # 在每次下载后暂停一段时间
+    time.sleep(2)  # 等待2秒，根据需要调整
     data = etf.history(period="1y")  # 获取过去1年数据
+    time.sleep(1)  # 等待2秒，根据需要调整
     return data['Close']
 
 def get_etf_year_close_line(etf_info_map):
